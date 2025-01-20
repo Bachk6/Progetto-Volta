@@ -33,7 +33,6 @@ class Server(BaseHTTPRequestHandler):
                 f.close()
                 return data
         except FileNotFoundError as e:
-            raise e
             self.resp = 404
             data = b""
             return data

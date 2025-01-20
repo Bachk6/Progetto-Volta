@@ -18,8 +18,7 @@ class Server(BaseHTTPRequestHandler):
             #GET_FILE è per il fetch di javascript e css#
             if apipath.startswith("get_file/"):
                 filename=apipath.lstrip("get_file/")
-                self.msg=self.getFile("public/"+filename)
-            if apipath=="get_destinazioni":
+                self.msg=self.getFile("frontend/public/"+filename)
         else:
             self.resp=404
         self.send_response(self.resp)
@@ -32,7 +31,8 @@ class Server(BaseHTTPRequestHandler):
                 data = f.read()
                 f.close()
                 return data
-        except FileNotFoundError:
+        except FileNotFoundError as e:
+            raise e
             self.resp = 404
             data = b""
             return data

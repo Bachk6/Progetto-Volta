@@ -8,7 +8,7 @@ Front end è classico, lo sappiamo già fare con HTML, CSS, JS.
 Per agevolare la collaborazione, abbiamo scelto alcune linee guida che sarebbe meglio seguire
 
 ### Html, CSS
-Cercate di mettere i commenti, sopratutto se non si capisce a vista d'occhio cosa una tag o una classe CSS fanno
+Cercate di mettere i commenti, sopratutto se non si capisce a vista d'occhio cosa una tag o una classe CSS fanno. Gli script e stili devono essere esterni all'html.
 
 ### Javascript
 * I punti e virgola sono opzionali, ma cercate di metterli sempre.

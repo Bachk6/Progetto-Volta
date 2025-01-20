@@ -1,3 +1,4 @@
+
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 
@@ -62,6 +63,3 @@ def run_server()->None:
 
 if __name__=="__main__":
     run_server()
-
-
-

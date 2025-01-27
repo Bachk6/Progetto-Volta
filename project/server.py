@@ -15,10 +15,10 @@ class Server(BaseHTTPRequestHandler):
         self.msg=b""
         path = self.get_path()
         if path.startswith("api/"):
-            apipath =path.lstrip("api/")
+            apipath =path.removeprefix("api/")
             #GET_FILE è per il fetch di javascript e css#
             if apipath.startswith("get_file/"):
-                filename=apipath.lstrip("get_file/")
+                filename=apipath.removeprefix("get_file/")
                 self.msg=self.getFile("frontend/public/"+filename)
         else:
             self.resp=404
@@ -55,9 +55,6 @@ def run_server()->None:
     httpd = HTTPServer(server_address, Server)
     print("Server in esecuzione su http://localhost:8080...")
     httpd.serve_forever()
-
-
-
 
 
 if __name__=="__main__":

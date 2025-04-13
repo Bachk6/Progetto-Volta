@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Museo di Alessandro Volta</title>
+</head>
+<body>
+    <h1> Opere del Museo Volta</h1>
+    <ul>
+        {% for opera in opere %}
+        <li>
+            <a href ="{% url 'dettaglio_opera' opera.id %}">{{opera.titolo}}</a> di {{opera.autore}} ({{opera.anno }})
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,3 +1,6 @@
 -Modello opera
 - Installato pillow per l'immagine dell'opera
 - Registrato nell'admin
+- Provato a creare delle viste
+- Provato a creare home.html (la mia idea è che mostra ogni opera poi boh)
+- Provato a creare la pagina per il dettaglio delle opere

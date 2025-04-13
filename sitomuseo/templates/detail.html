@@ -5,11 +5,11 @@
 </head>
 <body>
     <h1>{{ opera.titolo }}</h1>
-    <p><strong>Autore:</strong> {{ opera.autore }}</p>
-    <p><strong>Anno:</strong> {{ opera.anno }}</p>
-    <p><strong>Descrizione:</strong> {{ opera.descrizione }}</p>
+    <p><strong>Autore:</strong> {{ opera.author }}</p>
+    <p><strong>Anno:</strong> {{ opera.year }}</p>
+    <p><strong>Descrizione:</strong> {{ opera.description }}</p>
     {% if opera.immagine %}
-        <img src="{{ opera.immagine.url }}" alt="{{ opera.titolo }}" style="max-width: 400px;">
+        <img src="{{ opera.immagine.url }}" alt="{{ opera.title }}" style="max-width: 400px;">
     {% endif %}
     <p><a href="{% url 'home' %}">← Torna alla home</a></p>
 </body>

@@ -8,4 +8,4 @@ class Opera(models.Model):
     image = models.ImageField(upload_to='opere/', blank=True, null=True)
 
     def __str__(self):
-        return self.titolo
+        return self.title

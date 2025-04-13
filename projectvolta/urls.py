@@ -20,5 +20,7 @@ from sitomuseo import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("placeholder/",views.placeholder, name="placeholder")
+    path("placeholder/",views.placeholder, name="placeholder"),
+    path("home/",views.home, name="home"),
+    path("detail/<int:opera_id>",views.detail,name="detail")
 ]

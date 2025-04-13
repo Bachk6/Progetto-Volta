@@ -4,12 +4,12 @@
     <title>{{ opera.titolo }} - Dettagli</title>
 </head>
 <body>
-    <h1>{{ opera.titolo }}</h1>
+    <h1>{{ opera.title }}</h1>
     <p><strong>Autore:</strong> {{ opera.author }}</p>
     <p><strong>Anno:</strong> {{ opera.year }}</p>
     <p><strong>Descrizione:</strong> {{ opera.description }}</p>
-    {% if opera.immagine %}
-        <img src="{{ opera.immagine.url }}" alt="{{ opera.title }}" style="max-width: 400px;">
+    {% if opera.image %}
+        <img src="{{ opera.image.url }}" alt="{{ opera.title }}" style="max-width: 400px;">
     {% endif %}
     <p><a href="{% url 'home' %}">← Torna alla home</a></p>
 </body>

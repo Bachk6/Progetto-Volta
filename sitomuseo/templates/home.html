@@ -11,7 +11,7 @@
     <ul>
         {% for opera in opere %}
         <li>
-            <a href ="{% url 'detail' opera.id %}">{{opera.title}}</a> di {{opera.author}} ({{opera.year }})
+            <a href ="{% url 'detail' opera.id %}">{{opera.title}}</a> di {{opera.Autore.name}} {{opera.Autore.surname}}({{opera.year }})
         </li>
         {% endfor %}
     </div>

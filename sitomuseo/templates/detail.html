@@ -7,7 +7,7 @@
 <body>
     <h1>{{ opera.title }}</h1>
     <div class="centerdiv">
-    <p><strong>Autore:</strong> {{ opera.author }}</p>
+    <p><strong>Autore:</strong> {{ opera.Autore.name }} {{ opera.Autore.surname}}</p>
     <p><strong>Anno:</strong> {{ opera.year }}</p>
     <p><strong>Descrizione:</strong> {{ opera.description }}</p>
     {% if opera.image %}

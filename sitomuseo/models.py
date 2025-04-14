@@ -12,7 +12,6 @@ class Autore(models.Model):
     
 class Opera(models.Model):
     title = models.CharField(max_length=200)
-    author = models.CharField(max_length=100)
     author = models.ForeignKey(Autore, on_delete=models.SET_NULL, null=True)
     year = models.PositiveIntegerField()
     description = models.TextField()

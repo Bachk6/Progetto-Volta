@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <title>Parole Intrecciate con Alessandro Volta</title>
+   <link rel="stylesheet" href="/media/frontend/game.css">
+</head>
+<body>
+   <h1>Parole Intrecciate</h1>
+   <div id="MatriceLettere"></div>
+<script>
+    const matrice = [
+        ['v', 'c', 'a', 'o', 't'],
+        ['f', 'o', 'c', 'a', 'o'],
+        ['o', 'm', 'l', 'o', 'm'],
+        ['m', 'a', 't', 't', 'b'],
+        ['p', 'i', 'l', 'a', 'a']
+    ];
+
+
+    function CreaTabella(matrice) {
+        const tabella = document.createElement("table");
+        for (let i = 0; i < matrice.length; i++) {
+            const row = document.createElement("tr");
+            for (let j = 0; j < matrice[i].length; j++) {
+                const cella = document.createElement("td");
+                cella.textContent = matrice[i][j];
+                row.appendChild(cella);
+            }
+            tabella.appendChild(row);
+        }
+        return tabella;
+    }
+
+
+    const container = document.getElementById("MatriceLettere");
+    const tabellaGioco = CreaTabella(matrice);
+    container.appendChild(tabellaGioco);
+</script>
+</body>
+</html>

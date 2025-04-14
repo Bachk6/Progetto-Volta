@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Museo di Alessandro Volta</title>
-    <link rel="stylesheet" href="/media/frontend/general.css">
-</head>
-<body>
-    <h1> Opere del Museo Volta</h1>
-    <div class="centerdiv">
-    <ul>
-        {% for opera in opere %}
+{% extends 'base.html' %}
+{%block title %}Opere del Museo Volta{%endblock%}
+{%block pagetitle %}Museo Volta - Homepage{%endblock%}
+{%block content%}
+    {% for opera in opere %}
         <li>
             <a href ="{% url 'detail' opera.id %}">{{opera.title}}</a> di {{opera.author}} ({{opera.year }})
         </li>
-        {% endfor %}
-    </div>
-    </ul>
-</body>
-</html>
+    {% endfor %}
+{%endblock%}

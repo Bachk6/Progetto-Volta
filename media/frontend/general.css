@@ -13,6 +13,7 @@ header{
     box-shadow: 0 0 0.5cm 0.06cm #0008;
     padding-bottom:0.25cm;
     padding-top:0.15cm;
+    padding-left: 0.1cm;
     align-items: center;
     display: flex;
 }

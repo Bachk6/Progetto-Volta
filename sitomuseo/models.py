@@ -49,4 +49,4 @@ class Achievement(models.Model):
     condition = models.TextField()
 
     def __str__(self):
-        return self.name
+        return self.nome

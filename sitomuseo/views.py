@@ -15,7 +15,7 @@ def detail(request, opera_id):
 def placeholder(request):
     return render(request,"placeholder.html")
 
-def achievement(request,achievement_id):
+def achievement(request):
     achievements = Achievement.objects.all()
     return render(request, 'achievement.html', {'achievement': achievements})
 

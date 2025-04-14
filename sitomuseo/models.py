@@ -5,10 +5,10 @@ class Autore(models.Model):
     surname = models.CharField(max_length=30)
     birth_date = models.PositiveIntegerField(null=True, blank=True)
     death_date = models.PositiveIntegerField(null=True, blank=True)
-    description = models.CharField(max_length=255)
+    description = models.TextField()
 
     def __str__(self):
-        return self.title
+        return self.name+" "+self.surname
     
 class Opera(models.Model):
     title = models.CharField(max_length=200)

@@ -22,7 +22,7 @@ class Opera(models.Model):
     def __str__(self):
         return self.title
 
-class Crosswords(models.Model):
+class Crossword(models.Model):
     opera = models.OneToOneField(Opera, on_delete=models.CASCADE)
     autore = models.OneToOneField(Autore, on_delete=models.CASCADE)
     field = models.CharField(max_length=200)
@@ -31,5 +31,21 @@ class Crosswords(models.Model):
     def __str__(self):
         return f"Crosswords arguments: {self.opera.title} and {self.autore.name}"
 
+class Utente(models.Model):
+    username = models.CharField(max_length=200)
+    icona = models.ImageField(upload_to='media/imgsrc/', blank=True, null=True)
+    hash = models.CharField(max_length=257)
+    crosswords = models.ManyToManyField('Crossword')
+    achievements = models.ManyToManyField('Achievement')
 
+    def __str__(self):
+        return self.username
     
+class Achievement(models.Model):
+    nome = models.CharField(max_length=200)
+    icona = models.ImageField(upload_to='media/imgsrc/', blank=True, null=True)
+    description = models.TextField()
+    condition = models.TextField()
+
+    def __str__(self):
+        return self.name

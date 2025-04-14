@@ -5,7 +5,7 @@ class Autore(models.Model):
     surname = models.CharField(max_length=30)
     birth_date = models.DateField(null=True, blank=True)
     death_date = models.DateField(null=True, blank=True)
-    nation = models.CharField(max_length=100)
+    nation = models.CharField(max_length=100, null=True, blank=True)
     description = models.TextField()
     image = models.ImageField(upload_to='media/imgsrc/', blank=True, null=True)
 

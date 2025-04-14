@@ -1,5 +1,6 @@
 from django.db import models
  
+#Modello Autore
 class Autore(models.Model): 
     name = models.CharField(max_length=30)
     surname = models.CharField(max_length=30)

@@ -12,6 +12,7 @@ class Autore(models.Model):
     def __str__(self):
         return self.name+" "+self.surname
     
+# Modello opera
 class Opera(models.Model):
     title = models.CharField(max_length=200)
     author = models.ForeignKey(Autore, on_delete=models.SET_NULL, null=True)

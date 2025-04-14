@@ -25,6 +25,17 @@ h1,h2,h3,h4,h5,h6{
     border-radius: 0.2cm;
 }
 
+.achiv_img {
+    width: 50vw;
+    height: auto;
+    text-align: center;
+    align-self: center;
+    margin-left: 0;
+    margin-right: 0;
+    box-shadow: 13px 9px 20px 0px #00000080;
+    border-radius: 0.2cm;
+}
+
 a{
     color: rgb(136, 96, 62);
 }

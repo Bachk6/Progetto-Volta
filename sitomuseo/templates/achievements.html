@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ achievement.nome }} - Dettagli </title>
+        <link rel="stylesheet" href="/media/frontend/general.css">
+    </head>
+    <body>
+        <h1>{{ achievement.nome }}</h1>
+        <div class="centerdiv">
+        <p><strong>Nome:</strong> {{ achievement.nome }}</p>
+        <p><strong>Requisiti:</strong> {{ achievement.condition }}</p>
+        <p><strong>Descrizione:</strong> {{ achievement.description }}</p>
+        {% if achievement.icona %}
+            <img src="{{ achievement.icona.url }}" alt="{{ achievement.nome }}" class="achiv_img">    
+        {% endif %}
+        <p><a href="{% url 'home' %}">← Torna alla home</a></p>
+        </div>
+    </body>
+</html>

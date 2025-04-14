@@ -16,5 +16,17 @@
         {% endfor %}
     </div>
     </ul>
+    <div>
+        <h1> Achievements </h1>
+        <div class="centerdiv">
+        <ul>
+            {% for achievement in achievements %}
+            <li>
+                <a href ="{% url 'achievement.id %}">{{achievement.nome}}</a>
+            </li>
+            {% endfor %}
+        </div>
+        </ul>
+    </div>
 </body>
 </html>

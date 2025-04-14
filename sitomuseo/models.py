@@ -1,6 +1,6 @@
 from django.db import models
-
-class Autore(models.Model):
+ 
+class Autore(models.Model): 
     name = models.CharField(max_length=30)
     surname = models.CharField(max_length=30)
     birth_date = models.DateField(null=True, blank=True)

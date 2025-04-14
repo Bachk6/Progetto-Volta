@@ -16,5 +16,9 @@ def placeholder(request):
     return render(request,"placeholder.html")
 
 def achievement(request,achievement_id):
+    achievements = Achievement.objects.all()
+    return render(request, 'achievement.html', {'achievement': achievements})
+
+def detail_achiv(request, achievement_id):
     achievement = get_object_or_404(Achievement, id=achievement_id)
-    return render(request, 'achievement.html', {'achievement': achievement})
+    return render(request, 'detail_achiv.html', {'achievement': achievement})

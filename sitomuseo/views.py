@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render,get_object_or_404
 from django.template import loader
 from .models import Opera
+from .models import Achievement
 
 def home(request):
     opere = Opera.objects.all()
@@ -13,3 +14,7 @@ def detail(request, opera_id):
     
 def placeholder(request):
     return render(request,"placeholder.html")
+
+def achievement(request,achievement_id):
+    achievement = get_object_or_404(Achievement, id=achievement_id)
+    return render(request, 'achievement.html', {'achievement': achievement})

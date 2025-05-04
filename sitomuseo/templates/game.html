@@ -1,41 +1,161 @@
 <!DOCTYPE html>
-<html>
-<head>
-   <meta charset="UTF-8">
-   <title>Parole Intrecciate con Alessandro Volta</title>
-   <link rel="stylesheet" href="/media/frontend/game.css">
-</head>
-<body>
-   <h1>Parole Intrecciate</h1>
-   <div id="MatriceLettere"></div>
-<script>
-    const matrice = [
-        ['v', 'c', 'a', 'o', 't'],
-        ['f', 'o', 'c', 'a', 'o'],
-        ['o', 'm', 'l', 'o', 'm'],
-        ['m', 'a', 't', 't', 'b'],
-        ['p', 'i', 'l', 'a', 'a']
-    ];
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parole Intrecciate con Alessandro Volta</title>
+    <link
+      rel="stylesheet"
+      href="http://localhost:8080/media/frontend/game.css"
+    />
+    <!--Il link al css è sbagliato, ma da statico-->
+  </head>
+  <body>
+    <h1>Parole Intrecciate</h1>
+    <div id="MatriceLettere"></div>
+    <div id="Messaggi"></div>
 
+    <script>
+      const matrice = [
+        ["v", "c", "a", "o", "t"],
+        ["f", "o", "c", "a", "o"],
+        ["o", "m", "l", "o", "m"],
+        ["m", "o", "t", "t", "b"],
+        ["p", "i", "l", "a", "a"],
+      ];
 
-    function CreaTabella(matrice) {
+      const paroleDaTrovare = ["volta", "como", "pila", "tomba", "foca"]; // Parole valide
+      let primaCella = null; // Memorizza la prima cella selezionata
+      let ultimaCella = null; // Memorizza l'ultima cella selezionata
+
+      function CreaTabella(matrice) {
         const tabella = document.createElement("table");
         for (let i = 0; i < matrice.length; i++) {
-            const row = document.createElement("tr");
-            for (let j = 0; j < matrice[i].length; j++) {
-                const cella = document.createElement("td");
-                cella.textContent = matrice[i][j];
-                row.appendChild(cella);
-            }
-            tabella.appendChild(row);
+          const row = document.createElement("tr");
+          for (let j = 0; j < matrice[i].length; j++) {
+            const cella = document.createElement("td");
+            cella.textContent = matrice[i][j];
+            cella.dataset.row = i; // Memorizza la riga della cella
+            cella.dataset.col = j; // Memorizza la colonna della cella
+            cella.addEventListener("click", SelezionaCella);
+            row.appendChild(cella);
+          }
+          tabella.appendChild(row);
         }
         return tabella;
-    }
+      }
 
+      function SelezionaCella(event) {
+        const cella = event.target;
 
-    const container = document.getElementById("MatriceLettere");
-    const tabellaGioco = CreaTabella(matrice);
-    container.appendChild(tabellaGioco);
-</script>
-</body>
+        if (!primaCella) {
+          // Se non è stata selezionata alcuna prima cella, impostala
+          primaCella = cella;
+          cella.classList.add("selezionato-prima");
+        } else if (!ultimaCella) {
+          // Se è già stata selezionata la prima cella, impostala come ultima
+          ultimaCella = cella;
+          cella.classList.add("selezionato-ultima");
+
+          // Controlla se la parola formata è valida
+          ControllaParola();
+        } else {
+          // Resetta la selezione se sono già state selezionate due celle
+          ResettaSelezione();
+          SelezionaCella(event); // Ripeti il processo per selezionare una nuova parola
+        }
+      }
+
+      function ResettaSelezione() {
+        if (primaCella) {
+          primaCella.classList.remove("selezionato-prima");
+        }
+        if (ultimaCella) {
+          ultimaCella.classList.remove("selezionato-ultima");
+        }
+        primaCella = null;
+        ultimaCella = null;
+      }
+
+      function ControllaParola() {
+        const messaggi = document.getElementById("Messaggi");
+
+        // Ottieni le coordinate delle celle selezionate
+        const startRow = parseInt(primaCella.dataset.row);
+        const startCol = parseInt(primaCella.dataset.col);
+        const endRow = parseInt(ultimaCella.dataset.row);
+        const endCol = parseInt(ultimaCella.dataset.col);
+
+        // Estrai la parola dalla matrice
+        const parolaFormata = EstraiParola(startRow, startCol, endRow, endCol);
+
+        if (paroleDaTrovare.includes(parolaFormata)) {
+          messaggi.textContent = `Hai trovato: "${parolaFormata}"!`;
+          EvidenziaParola(startRow, startCol, endRow, endCol);
+          RimuoviParolaDaLista(parolaFormata);
+        } else {
+          messaggi.textContent = `"${parolaFormata}" non è una parola valida.`;
+        }
+
+        // Resetta la selezione dopo il controllo
+        ResettaSelezione();
+      }
+
+      function EstraiParola(startRow, startCol, endRow, endCol) {
+        let parola = "";
+        const deltaRow = Math.sign(endRow - startRow); // Direzione verticale (-1, 0, +1)
+        const deltaCol = Math.sign(endCol - startCol); // Direzione orizzontale (-1, 0, +1)
+
+        let currentRow = startRow;
+        let currentCol = startCol;
+
+        while (currentRow !== endRow || currentCol !== endCol) {
+          parola += matrice[currentRow][currentCol];
+          currentRow += deltaRow;
+          currentCol += deltaCol;
+        }
+
+        parola += matrice[endRow][endCol]; // Aggiungi l'ultima lettera
+        return parola;
+      }
+
+      function EvidenziaParola(startRow, startCol, endRow, endCol) {
+        const deltaRow = Math.sign(endRow - startRow);
+        const deltaCol = Math.sign(endCol - startCol);
+
+        let currentRow = startRow;
+        let currentCol = startCol;
+
+        while (currentRow !== endRow || currentCol !== endCol) {
+          const cella = document.querySelector(
+            `td[data-row="${currentRow}"][data-col="${currentCol}"]`
+          );
+          cella.classList.add("trovato");
+          currentRow += deltaRow;
+          currentCol += deltaCol;
+        }
+
+        const ultimaCella = document.querySelector(
+          `td[data-row="${endRow}"][data-col="${endCol}"]`
+        );
+        ultimaCella.classList.add("trovato");
+      }
+
+      function RimuoviParolaDaLista(parola) {
+        const indice = paroleDaTrovare.indexOf(parola);
+        if (indice !== -1) {
+          paroleDaTrovare.splice(indice, 1);
+        }
+        if (paroleDaTrovare.length === 0) {
+          document.getElementById("Messaggi").textContent =
+            "Complimenti! Hai trovato tutte le parole!";
+        }
+      }
+
+      // Inizializzazione del gioco
+      const container = document.getElementById("MatriceLettere");
+      const tabellaGioco = CreaTabella(matrice);
+      container.appendChild(tabellaGioco);
+    </script>
+  </body>
 </html>

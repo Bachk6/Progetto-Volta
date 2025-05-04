@@ -1,74 +1,79 @@
-body{
-    background-color: rgb(255, 248, 221);
-    color: rgb(0, 0, 0);
-    margin:0;
-    padding:0;
-    border:0
+/* Stile generale della pagina */
+body {
+   background-color: rgb(255, 248, 221);
+   color: rgb(0, 0, 0);
+   margin: 0;
+   padding: 0;
+   font-family: Arial, sans-serif;
  }
  
- 
- .centerdiv{
-    width: 50%;
-    margin-left: 25%;
- }
- h1,h2,h3,h4,h5,h6{
-    text-align: center;
- }
- 
- 
+ /* Contenitore centrale per la griglia */
  #MatriceLettere {
-    width: 50%;
-    height: 50%;
-    margin-left: 43.5%;
-    border-width: 10px;
-    border-color: black;
+   width: 60%;
+   margin: 30px auto;
+   border: 2px solid black;
+   border-radius: 10px;
+   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+   background-color: white;
+   padding: 10px;
  }
  
- 
- 
+ /* Stile delle celle della griglia */
  td {
-    width: 50px;
-    font-size:xx-large;
-    height: 50px;
-    text-align: center;
+   width: 50px;
+   height: 50px;
+   font-size: xx-large;
+   text-align: center;
+   vertical-align: middle;
+   border: 1px solid #ccc;
+   cursor: pointer;
+   transition: background-color 0.2s ease;
  }
-
-
- td:hover{
-    width: 50px;
-    font-size:xx-large;
-    height: 50px;
-    text-align: center;
-    background-color: rgb(255, 248, 190);
-    cursor: pointer;
+ 
+ /* Hover sulle celle */
+ td:hover {
+   background-color: rgb(255, 248, 190);
  }
-
-
+ 
+ /* Celle selezionate durante la ricerca di una parola */
+ .selezionato-prima {
+   background-color: orange;
+   color: white;
+ }
+ 
+ .selezionato-ultima {
+   background-color: orange;
+   color: white;
+ }
+ 
+ /* Celle che fanno parte di una parola trovata */
+ .trovato {
+   background-color: green;
+   color: white;
+ }
+ 
+ /* Stile della tabella */
  table {
-    border: 1px solid black;
- }
-
-
- .operaimg {
-    width: 50vw;
-    height: auto;
-    text-align: center;
-    align-self: center;
-    margin-left: 0;
-    margin-right: 0;
-    box-shadow: 13px 9px 20px 0px #00000080;
-    border-radius: 0.2cm;
+   margin: 0 auto;
+   border-collapse: collapse;
  }
  
- 
- a{
-    color: rgb(136, 96, 62);
+ /* Messaggi di feedback */
+ #Messaggi {
+   text-align: center;
+   margin-top: 20px;
+   font-size: 18px;
+   color: blue;
  }
  
+ /* Stile per i titoli */
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6 {
+   text-align: center;
+   color: rgb(136, 96, 62);
+ }
  
- a:visited{
-    color: #6e5f52;
- }
- a:hover{
-    color: rgb(137, 81, 31);
- }

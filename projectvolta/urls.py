@@ -24,5 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("placeholder/",views.placeholder, name="placeholder"),
     path("home/",views.home, name="home"),
-    path("detail/<int:opera_id>",views.detail,name="detail")
+    path("detail/<int:opera_id>",views.detail,name="detail"),
+    path("achievements/",views.achievement,name="achievements"),
+    path("detail_achiv/<int:achievement_id>",views.detail_achiv,name="achievement")
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

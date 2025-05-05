@@ -6,7 +6,7 @@
     <title>Parole Intrecciate con Alessandro Volta</title>
     <link
       rel="stylesheet"
-      href="http://localhost:8000/media/frontend/game.css"
+      href="game.css"
     />
     <!--Il link al css è sbagliato, ma da statico-->
   </head>
@@ -16,17 +16,21 @@
     <div id="Messaggi"></div>
 
     <script>
+
+      const indent = 1;
+
+
       const matrice = [
-        ["v", "c", "a", "o", "t"],
-        ["f", "o", "c", "a", "o"],
-        ["o", "m", "l", "o", "m"],
-        ["m", "o", "t", "t", "b"],
-        ["p", "i", "l", "a", "a"],
+        ["b", "c", "a", "o", "w", "v", "m"],
+        ["f", "o", "c", "a", "o", "e", "m"],
+        ["z", "m", "l", "l", "t", "o", "i"],
+        ["c", "i", "t", "a", "e", "b", "r"],
+        ["p", "i", "l", "a", "b", "c", "a"],
+        ["i", "l", "n", "c", "a", "i", "m"],
+        ["o", "i", "l", "e", "o", "b", "e"],
       ];
 
-      const paroleDaTrovare = ["volta", "como", "pila", "tomba", "foca"]; // Parole valide
-
-      
+      const paroleDaTrovare = ["volt", "volt", "pila", "watt", "rame", "zinco", "metallo"]; // Parole valide
       let primaCella = null; // Memorizza la prima cella selezionata
       let ultimaCella = null; // Memorizza l'ultima cella selezionata
 

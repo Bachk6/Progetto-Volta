@@ -27,7 +27,7 @@ class Crossword(models.Model):
     opera = models.OneToOneField(Opera, on_delete=models.CASCADE)
     autore = models.OneToOneField(Autore, on_delete=models.CASCADE)
     field = models.CharField(max_length=200)
-    # matrix = . . .
+    matrix = models.JSONField
 
     def __str__(self):
         return f"Crosswords arguments: {self.opera.title} and {self.autore.name}"

@@ -41,7 +41,8 @@ def lista_autori(request):
 
 def dettaglio_autore(request, id):
     autore = get_object_or_404(Autore, pk=id)
-    return render(request, 'dettaglio_autore.html', {'autore': autore})
+    opere = Opera.objects.filter(author=id)
+    return render(request, 'dettaglio_autore.html', {'autore': autore, "opere":opere})
 
 def gioco(request,id):
     cross = get_object_or_404(Crossword,pk=id)
@@ -51,7 +52,6 @@ def gioco(request,id):
     return render(request,'gameFinal.html', {"cross":f})
 
 def favicon(request):
-    print(os.listdir())
     f= open("./media/media/imgsrc/icon.png","rb");
     r = f.read()
     f.close()

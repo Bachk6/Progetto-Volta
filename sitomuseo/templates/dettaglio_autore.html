@@ -8,7 +8,14 @@
     {% if autore.photo %}
         <img src="{{ autore.photo.url }}" alt="{{ autore.name }} {{ autore.surname }}" class="operaimg">
     {% endif %}
-    
-    <a href="{% url 'lista_autori' %}">← Torna alla lista</a>
+    <br><br>
+    <h2>Opere di Questo Autore:</h2>
+    {% for opera in opere %}
+        <li>
+            <a href ="{% url 'detail' opera.id %}">{{opera.title}}</a>({{opera.year }})
+        </li>
+    {% endfor %}
+    <br>
+    <a href="{% url 'lista_autori' %}">← Torna alla lista autori</a>
     <p><a href="{% url 'home' %}">← Torna alla home</a></p>
     {%endblock%} 

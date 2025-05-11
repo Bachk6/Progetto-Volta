@@ -86,3 +86,45 @@ a:hover{
 .imgicon:hover{
     cursor:pointer
 }
+
+.auth-table {
+  width: 100%;
+  max-width: 800px;
+  margin: 50px auto;
+  border-spacing: 50px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.auth-form input[type="text"],
+.auth-form input[type="password"] {
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.auth-form button {
+  padding: 10px;
+  background-color: rgb(137, 81, 31);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-form button:hover {
+  background-color: rgb(110, 55, 7);
+}

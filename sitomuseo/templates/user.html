@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %} User actions {% endblock %}
+{% block pagetitle %} Login or Sign-up {% endblock %}
+
+{% block content %}
+<table class="auth-table">
+  <tr>
+    <td>
+      <h2>Login</h2>
+      <form class="auth-form" method="post" action=''>
+        {% csrf_token %}
+        {{ form_login }}
+        <button type="submit">Accedi</button>
+      </form>
+    </td>
+    <td>
+      <h2>Sign-up</h2>
+      <form class="auth-form" method="post" action=''>
+        {% csrf_token %}
+        {{ form_signup }}
+        <button type="submit">Registrati</button>
+      </form>
+    </td>
+  </tr>
+</table>
+{% endblock %}

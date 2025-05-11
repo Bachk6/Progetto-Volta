@@ -6,7 +6,7 @@
     {% if opera.author %}
   <p><strong>Autore:</strong> 
     <a href="{% url 'dettaglio_autore' opera.author.id %}">
-      {{ opera.author.nome }} {{ opera.author.cognome }}
+      {{ opera.author.name }} {{ opera.author.surname }}
     </a>
   </p>
 {% else %}

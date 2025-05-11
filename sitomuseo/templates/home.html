@@ -4,7 +4,7 @@
 {%block content%}
     {% for opera in opere %}
         <li>
-            <a href ="{% url 'detail' opera.id %}">{{opera.title}}</a> di {{opera.Autore.name}} {{opera.Autore.surname}}({{opera.year }})
+            <a href ="{% url 'detail' opera.id %}">{{opera.title}}</a> di {{opera.author.name}} {{opera.author.surname}}({{opera.year }})
         </li>
     {% endfor %}
 {%endblock%}

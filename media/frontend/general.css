@@ -14,6 +14,7 @@ header{
     padding-bottom:0.25cm;
     padding-top:0.15cm;
     padding-left: 0.1cm;
+    padding-right:0.15cm;
     align-items: center;
     display: flex;
 }
@@ -80,4 +81,8 @@ a:hover{
     position: relative;
     height: 100%;
     width: auto;
+}
+
+.imgicon:hover{
+    cursor:pointer
 }

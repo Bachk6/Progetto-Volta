@@ -22,3 +22,6 @@ def achievement(request):
 def detail_achiv(request, achievement_id):
     achievement = get_object_or_404(Achievement, id=achievement_id)
     return render(request, 'detail_achiv.html', {'achievement': achievement})
+
+def user(request):
+    return render(request,"user.html")

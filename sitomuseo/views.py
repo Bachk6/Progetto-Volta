@@ -1,10 +1,12 @@
 from django.http import HttpResponse
 from django.shortcuts import render,get_object_or_404
 from django.template import loader
-from .models import Opera,Autore,Crossword
+from .models import Opera,Autore,Crossword,Utente
 from .models import Achievement
 from .forms import LoginForm, SignupForm
 import json,os
+from django.shortcuts import redirect
+import hashlib
 
 def home(request):
     opere = Opera.objects.all()
@@ -26,6 +28,32 @@ def detail_achiv(request, achievement_id):
     return render(request, 'detail_achiv.html', {'achievement': achievement})
 
 def user(request):
+    if request.method == 'POST':
+        form_login = LoginForm(request.POST)
+        form_signup = SignupForm(request.POST)
+        if form_signup.is_valid():
+            user = form_signup.data['user_S']
+            psw = form_signup.data['psw_S']
+            hash = hashlib.sha256(psw.encode()).hexdigest()
+            print(hash)
+            lista = Utente.objects.filter(username=user)
+            if len(lista) == 0:
+                insert_list = [
+                    Utente(username=user,hash=hash)
+                ]
+                Utente.objects.bulk_create(insert_list)
+                return redirect('registered')
+        if form_login.is_valid():
+            user = form_signup.data['user_L']
+            psw = form_signup.data['psw_L']
+            hash = hashlib.sha256(psw.encode()).hexdigest()
+            print(hash)
+            lista = Utente.objects.filter(username=user)
+            if len(lista) == 1:
+                utente = lista[0]
+                if hash == utente.hash:
+                    print("ciaone")
+                    return redirect('registered')
     form_login = LoginForm()
     form_signup = SignupForm()
     return render(request, "user.html",{

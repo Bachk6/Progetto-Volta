@@ -19,6 +19,7 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 from sitomuseo import views
+from django.http import HttpResponse
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,5 +33,7 @@ urlpatterns = [
     path('autori/', views.lista_autori, name='lista_autori'),
     path('autore/<int:id>/', views.dettaglio_autore, name='dettaglio_autore'),
     path('game/<int:id>/',views.gioco,name="gioco"),
-    path("favicon.ico",views.favicon, name="favicon")
+    path("favicon.ico",views.favicon, name="favicon"),
+    path('registered/', lambda request: HttpResponse('Sei registrato!'), name='registered'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+ 

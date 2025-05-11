@@ -27,4 +27,5 @@ urlpatterns = [
     path("detail/<int:opera_id>",views.detail,name="detail")
     path('autori/', views.lista_autori, name='lista_autori'),
     path('autori/<int:id>/', views.dettaglio_autore, name='dettaglio_autore'),
+    path('', include('sitomuseo.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -24,3 +24,11 @@
   </tr>
 </table>
 {% endblock %}
+
+
+{%block scriptfinale%}<script>
+  let messaggi = ["","Registrato con successo!","Nome utente esiste già","Loggato con successo", "Username o password sbagliata"];
+                  //0         1                          2                         3                        4
+  let msg = {{msg}};
+  if (msg!=0){alert(messaggi[msg]);};        
+</script>{%endblock%}

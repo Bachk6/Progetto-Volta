@@ -28,6 +28,7 @@ def detail_achiv(request, achievement_id):
     return render(request, 'detail_achiv.html', {'achievement': achievement})
 
 def user(request):
+    msg=0
     if request.method == 'POST':
         form_login = LoginForm(request.POST)
         form_signup = SignupForm(request.POST)
@@ -42,7 +43,8 @@ def user(request):
                     Utente(username=user,hash=hash)
                 ]
                 Utente.objects.bulk_create(insert_list)
-                return redirect('registered')
+                msg=1
+            else: msg=2
         if form_login.is_valid():
             user = form_signup.data['user_L']
             psw = form_signup.data['psw_L']
@@ -52,13 +54,16 @@ def user(request):
             if len(lista) == 1:
                 utente = lista[0]
                 if hash == utente.hash:
-                    print("ciaone")
-                    return redirect('registered')
+                    msg=3
+                else: msg=4
+            else:msg=4
+            
     form_login = LoginForm()
     form_signup = SignupForm()
     return render(request, "user.html",{
         "form_login": form_login,
-        "form_signup": form_signup
+        "form_signup": form_signup,
+        "msg":msg
     })
     
 def index(request):

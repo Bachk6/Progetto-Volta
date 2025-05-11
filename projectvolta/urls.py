@@ -26,5 +26,6 @@ urlpatterns = [
     path("home/",views.home, name="home"),
     path("detail/<int:opera_id>",views.detail,name="detail"),
     path("achievements/",views.achievement,name="achievements"),
-    path("detail_achiv/<int:achievement_id>",views.detail_achiv,name="achievement")
+    path("detail_achiv/<int:achievement_id>",views.detail_achiv,name="achievement"),
+    path("user/",views.user,name="user")
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/media/frontend/general.css">
 </head>
 <body>
-    <header><img class="imgicon" src="/media/media/imgsrc/lampada.png">Museo Volta</header>
+    <header><img class="imgicon" id="tohome" src="/media/media/imgsrc/lampada.png">Museo Volta<img id="touser" class="imgicon" src="/media/media/imgsrc/gotouser.png" style="margin-left:auto; height:90%;"></header>
     <div class="containerdiv">
     <h1>{%block title %}{%endblock%}</h1>
     <div class="centerdiv">
@@ -18,8 +18,9 @@
         ad esempio....<br>
         chi l'ha fatto, chi non la fatto etc etc etc
     </div>
-    <div class="centerdiv">
-    {%block achieve %}{% endblock %}
-    </div>
+    <script>
+        document.getElementById("tohome").addEventListener("click", ()=>{window.location={%url 'home'%}});
+        document.getElementById("touser").addEventListener("click", ()=>{window.location={%url 'user'%}});
+    </script>
 </body>
 </html>

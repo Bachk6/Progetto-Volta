@@ -9,7 +9,7 @@
       <h2>Login</h2>
       <form class="auth-form" method="post" action=''>
         {% csrf_token %}
-        {{ form_login }}
+        {{ form_login.as_p }}
         <button type="submit">Accedi</button>
       </form>
     </td> 
@@ -17,7 +17,7 @@
       <h2>Sign-up</h2>
       <form class="auth-form" method="post" action=''>
         {% csrf_token %}
-        {{ form_signup }}
+        {{ form_signup.as_p }}
         <button type="submit">Registrati</button>
       </form>
     </td>

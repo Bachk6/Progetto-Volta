@@ -25,3 +25,5 @@ def detail_achiv(request, achievement_id):
 
 def user(request):
     return render(request,"user.html")
+def index(request):
+    return render (request,'index.html')

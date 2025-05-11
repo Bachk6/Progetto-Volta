@@ -4,7 +4,7 @@ from django.template import loader
 from .models import Opera,Autore,Crossword
 from .models import Achievement
 from .forms import LoginForm, SignupForm
-import json
+import json,os
 
 def home(request):
     opere = Opera.objects.all()
@@ -49,3 +49,10 @@ def gioco(request,id):
     mat = json.dumps(mat)
     f = {'matrix':mat}
     return render(request,'gameFinal.html', {"cross":f})
+
+def favicon(request):
+    print(os.listdir())
+    f= open("./media/media/imgsrc/icon.png","rb");
+    r = f.read()
+    f.close()
+    return HttpResponse(r,content_type="image/png");

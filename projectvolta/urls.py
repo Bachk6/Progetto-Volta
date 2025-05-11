@@ -32,4 +32,5 @@ urlpatterns = [
     path('autori/', views.lista_autori, name='lista_autori'),
     path('autore/<int:id>/', views.dettaglio_autore, name='dettaglio_autore'),
     path('game/<int:id>/',views.gioco,name="gioco"),
+    path("favicon.ico",views.favicon, name="favicon")
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

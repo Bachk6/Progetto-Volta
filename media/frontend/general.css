@@ -14,6 +14,7 @@ header{
     padding-bottom:0.25cm;
     padding-top:0.15cm;
     padding-left: 0.1cm;
+    padding-right:0.15cm;
     align-items: center;
     display: flex;
 }
@@ -47,6 +48,17 @@ h1,h2,h3,h4,h5,h6{
     border-radius: 0.2cm;
 }
 
+.achiv_img {
+    width: 50vw;
+    height: auto;
+    text-align: center;
+    align-self: center;
+    margin-left: 0;
+    margin-right: 0;
+    box-shadow: 13px 9px 20px 0px #00000080;
+    border-radius: 0.2cm;
+}
+
 a{
     color: rgb(136, 96, 62);
 }
@@ -69,4 +81,60 @@ a:hover{
     position: relative;
     height: 100%;
     width: auto;
+}
+
+.imgicon:hover{
+    cursor:pointer
+}
+
+.auth-table {
+  width: 100%;
+  border-spacing: 20px;
+  /*max-width: 800px;
+  margin: 50px auto;
+  border-spacing: 50px;
+  text-align: center;
+  font-family: Arial, sans-serif;*/
+}
+
+.auth-form {
+  /*display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 30px;*/
+  background-color: white;
+  padding:30px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.auth-form input[type="text"],
+.auth-form input[type="password"] {
+    position: relative;
+width:-webkit-fill-available;
+  padding: 10px;
+  border-radius: 5px;
+  background-color:  rgb(253, 250, 240);;
+  /*border: 1px solid black;
+  
+  font-size: 16px;*/
+}
+
+.auth-form button {
+  padding: 10px;
+  background-color: rgb(137, 81, 31);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 90%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  transition: border-radius 0.3s ease;
+}
+
+.auth-form button:hover {
+  background-color: rgb(110, 55, 7);
+  border-radius: 10px;
 }

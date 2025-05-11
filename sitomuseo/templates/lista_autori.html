@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{%block title %}Autori{%endblock%}
+{%block pagetitle %}Museo Volta - Autori {%endblock%}
+{%block content%}
+<ul>
+    {% for autore in autori %}
+        <li>
+            <a href ="{% url 'dettaglio_autore' autore.id %}">{{autore.name}} {{autore.surname}}
+        </a>
+        </li>
+    {% endfor %}
+</ul>
+{%endblock%}

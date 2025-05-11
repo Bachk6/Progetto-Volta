@@ -1,0 +1,12 @@
+{%extends 'base.html'%}
+    {%block pagetitle%}{{ achievement.nome }} - Dettagli{%endblock%}
+    {%block title %}{{ achievement.nome }}{%endblock%}
+    {%block content%}
+    <p><strong>Nome:</strong> {{ achievement.nome }}</p>
+    <p><strong>Requisiti:</strong> {{ achievement.condition }}</p>
+    <p><strong>Descrizione:</strong> {{ achievement.description }}</p>
+    {% if achievement.icona %}
+        <img src="{{ achievement.icona.url }}" alt="{{ achievement.nome }}" class="achiv_img">    
+    {% endif %}
+    <p><a href="{% url 'achievements' %}">← Torna alla home</a></p>
+    {%endblock%}

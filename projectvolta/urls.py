@@ -15,14 +15,25 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 from sitomuseo import views
+from django.http import HttpResponse
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("placeholder/",views.placeholder, name="placeholder"),
     path("home/",views.home, name="home"),
-    path("detail/<int:opera_id>",views.detail,name="detail")
+    path("detail/<int:opera_id>",views.detail,name="detail"),
+    path("achievements/",views.achievement,name="achievements"),
+    path("detail_achiv/<int:achievement_id>",views.detail_achiv,name="achievement"),
+    path("user/",views.user,name="user"),
+    path("",views.index,name="index"),
+    path('autori/', views.lista_autori, name='lista_autori'),
+    path('autore/<int:id>/', views.dettaglio_autore, name='dettaglio_autore'),
+    path('game/<int:id>/',views.gioco,name="gioco"),
+    path("favicon.ico",views.favicon, name="favicon"),
+    path('registered/', lambda request: HttpResponse('Sei registrato!'), name='registered'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+ 

@@ -4,19 +4,24 @@
     <meta charset="UTF-8">
     <title>{%block pagetitle %}{% endblock %}</title>
     <link rel="stylesheet" href="/media/frontend/general.css">
+    {%block altrahead%}{%endblock%}
 </head>
 <body>
-    <header><img class="imgicon" src="/media/media/imgsrc/lampada.png">Museo Volta</header>
+    <header><img class="imgicon" id="tohome" src="/media/media/imgsrc/lampada.png">Museo Volta<img id="touser" class="imgicon" src="/media/media/imgsrc/gotouser.png" style="margin-left:auto; height:90%;"></header>
     <div class="containerdiv">
     <h1>{%block title %}{%endblock%}</h1>
     <div class="centerdiv">
     {%block content %}{%endblock%}
     </div>
-    </div>
+    </div> 
     <div class="bottom">
-        Informazioni sull azienda<br>
-        ad esempio....<br>
-        chi l'ha fatto, chi non la fatto etc etc etc
+        Magistri Cumacini - a.s. 2024/205<br>
+        Membri Gruppo: <br>-De Vito<br>-Legani<br>-Grassi<br>-Della Monica<br>-Consonni<br>-Escobar<br>
     </div>
+    <script>
+        document.getElementById("tohome").addEventListener("click", ()=>{window.location={%url 'home'%}});
+        document.getElementById("touser").addEventListener("click", ()=>{window.location={%url 'user'%}});
+    </script>
+    {%block scriptfinale%}{%endblock%}
 </body>
 </html>

@@ -1,9 +1,10 @@
 from django.http import HttpResponse
 from django.shortcuts import render,get_object_or_404
 from django.template import loader
-from .models import Opera,Autore
+from .models import Opera,Autore,Crossword
 from .models import Achievement
 from .forms import LoginForm, SignupForm
+import json
 
 def home(request):
     opere = Opera.objects.all()
@@ -41,3 +42,10 @@ def lista_autori(request):
 def dettaglio_autore(request, id):
     autore = get_object_or_404(Autore, pk=id)
     return render(request, 'dettaglio_autore.html', {'autore': autore})
+
+def gioco(request,id):
+    cross = get_object_or_404(Crossword,pk=id)
+    mat = cross.matrix
+    mat = json.dumps(mat)
+    f = {'matrix':mat}
+    return render(request,'gameFinal.html', {"cross":f})

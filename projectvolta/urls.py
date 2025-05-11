@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 from sitomuseo import views
@@ -24,8 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("placeholder/",views.placeholder, name="placeholder"),
     path("home/",views.home, name="home"),
-    path("detail/<int:opera_id>",views.detail,name="detail")
+    path("detail/<int:opera_id>",views.detail,name="detail"),
     path('autori/', views.lista_autori, name='lista_autori'),
     path('autori/<int:id>/', views.dettaglio_autore, name='dettaglio_autore'),
-    path('', include('sitomuseo.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -16,8 +16,8 @@ def placeholder(request):
 
 def lista_autori(request):
     autori = Autore.objects.all()
-    return render(rquest, 'lista_autori.html', {'autori':autori})
+    return render(request, 'lista_autori.html', {'autori':autori})
 
 def dettaglio_autore(request, pk):
     autore = get_object_or_404(Autore, pk=pk)
-    return render(request, 'dettaglio_autore.html'), {'autore': autore}
+    return render(request, 'dettaglio_autore.html', {'autore': autore})

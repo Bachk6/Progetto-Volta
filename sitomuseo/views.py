@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render,get_object_or_404
 from django.template import loader
-from .models import Opera
+from .models import Opera,Autore
 from .models import Achievement
 
 def home(request):
@@ -27,3 +27,10 @@ def user(request):
     return render(request,"user.html")
 def index(request):
     return render (request,'index.html')
+def lista_autori(request):
+    autori = Autore.objects.all()
+    return render(request, 'lista_autori.html', {'autori':autori})
+
+def dettaglio_autore(request, pk):
+    autore = get_object_or_404(Autore, pk=pk)
+    return render(request, 'dettaglio_autore.html', {'autore': autore})

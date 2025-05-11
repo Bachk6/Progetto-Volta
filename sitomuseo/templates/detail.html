@@ -2,7 +2,17 @@
     {%block pagetitle%}{{ opera.title }} - Dettagli{%endblock%}
     {%block title %}{{ opera.title }}{%endblock%}
     {%block content%}
-    <p><strong>Autore:</strong> {{ opera.author }}</p>
+    Per fare l'autore cliccabile
+    {% if opera.author %}
+  <p><strong>Autore:</strong> 
+    <a href="{% url 'dettaglio_autore' opera.author.id %}">
+      {{ opera.author.nome }} {{ opera.author.cognome }}
+    </a>
+  </p>
+{% else %}
+  <p><strong>Autore:</strong> Sconosciuto</p>
+{% endif %}
+
     <p><strong>Anno:</strong> {{ opera.year }}</p>
     <p><strong>Descrizione:</strong> {{ opera.description }}</p>
     {% if opera.image %}
@@ -13,4 +23,4 @@
         <img scr="{{ opera.model_3D }}" alt="{{ opera.title }}">
     {% endif %}
     <p><a href="{% url 'home' %}">← Torna alla home</a></p>
-    {%endblock%}
+    {%endblock%} 

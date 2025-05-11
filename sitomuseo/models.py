@@ -1,7 +1,10 @@
 from django.db import models
+ 
+#Modello Autore
 
 class Autore(models.Model):
     name = models.CharField(max_length=200)
+    surname = models.CharField(max_length=200)
     nationality = models.CharField(max_length=200)
     birth_date = models.DateField()
     death_date = models.DateField()
@@ -9,7 +12,7 @@ class Autore(models.Model):
     photo = models.ImageField(upload_to='media/imgsrc/', blank=True, null=True)
 
     def __str__(self):
-        return self.name
+        return self.name+" "+self.surname
 
 class Opera(models.Model):
     title = models.CharField(max_length=200)

@@ -1,0 +1,18 @@
+{%extends 'base.html'%}
+    {%block pagetitle%}{{ opera.title }} - Dettagli{%endblock%}
+    {%block title %}{{ opera.title }}{%endblock%}
+    {%block content%}
+    <h1>{{ autore.nome }} {{ autore.cognome }}</h1>
+    <p><strong>Data di nascita:</strong> {{ autore.data_nascita|date:"j F Y" }}</p>
+    <p><strong>Data di morte:</strong> {{ autore.data_morte|default:"Ancora vivo 😎" }}</p>
+    <p>{{ autore.descrizione }}</p>
+    {% if autore.foto %}
+        <img src="{{ autore.foto.url }}" alt="{{ autore.nome }} {{ autore.cognome }}" class="autoreimg">
+    {% endif %}
+    {% if opera.image %}
+        <img src="{{ opera.image.url }}" alt="{{ opera.title }}" class="operaimg">
+    {% endif %}
+    
+    <a href="{% url 'lista_autori' %}">← Torna alla lista</a>
+    <p><a href="{% url 'home' %}">← Torna alla home</a></p>
+    {%endblock%} 

@@ -3,6 +3,7 @@ from django.shortcuts import render,get_object_or_404
 from django.template import loader
 from .models import Opera
 from .models import Achievement
+from .forms import LoginForm, SignupForm
 
 def home(request):
     opere = Opera.objects.all()
@@ -24,4 +25,9 @@ def detail_achiv(request, achievement_id):
     return render(request, 'detail_achiv.html', {'achievement': achievement})
 
 def user(request):
-    return render(request,"user.html")
+    form_login = LoginForm()
+    form_signup = SignupForm()
+    return render(request, "user.html",{
+        "form_login": form_login,
+        "form_signup": form_signup
+    })

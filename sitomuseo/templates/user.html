@@ -8,16 +8,16 @@
     <td>
       <h2>Login</h2>
       <form class="auth-form" method="post" action=''>
-        <input type="text" id="user" name="user" placeholder="Username">
-        <input type="password" id="psw" name="psw" placeholder="Password">
+        {% csrf_token %}
+        {{ form_login }}
         <button type="submit">Accedi</button>
       </form>
     </td>
     <td>
       <h2>Sign-up</h2>
       <form class="auth-form" method="post" action=''>
-        <input type="text" id="user" name="user" placeholder="Username">
-        <input type="password" id="psw" name="psw" placeholder="Password">
+        {% csrf_token %}
+        {{ form_signup }}
         <button type="submit">Registrati</button>
       </form>
     </td>

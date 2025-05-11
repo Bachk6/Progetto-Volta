@@ -13,3 +13,11 @@ def detail(request, opera_id):
     
 def placeholder(request):
     return render(request,"placeholder.html")
+
+def lista_autori(request):
+    autori = Autore.objects.all()
+    return render(rquest, 'lista_autori.html', {'autori':autori})
+
+def dettaglio_autore(request, pk):
+    autore = get_object_or_404(Autore, pk=pk)
+    return render(request, 'dettaglio_autore.html'), {'autore': autore}

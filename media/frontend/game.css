@@ -55,6 +55,12 @@ td:hover {
   font-weight: bold;
 }
 
+.nonTrovato {
+  background-color: #d35454;
+  color: white;
+  font-weight: bold;
+}
+
 /* Stile della tabella */
 table {
   margin: 0 auto;

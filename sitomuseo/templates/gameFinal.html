@@ -8,6 +8,14 @@
     <div id="result" style="display:none">{{cross.matrix}}</div>
     <script>
       //Questo file contiene un dizionario da usare come base, quindi è una semi-bozza
+
+
+
+      //mettere apposto il colore della parola sbagliata
+
+
+
+      
       const data = JSON.parse(document.getElementById("result").innerHTML);
       /*
       {
@@ -93,6 +101,10 @@
           EvidenziaParola(startRow, startCol, endRow, endCol);
           RimuoviParolaDaLista(parolaFormata);
         } else {
+          
+          setTimeout(() => {
+            EvidenziaParolaSbagliata(startRow, startCol, endRow, endCol);
+          }, 1000);
           messaggi.textContent = `"${parolaFormata}" non è una parola valida.`;
         }
 
@@ -143,6 +155,37 @@
           ultimaCella.classList.add("trovato");
         }
       }
+
+
+
+
+      function EvidenziaParolaSbagliata(startRow, startCol, endRow, endCol) {
+        const deltaRow = Math.sign(endRow - startRow);
+        const deltaCol = Math.sign(endCol - startCol);
+
+        let currentRow = startRow;
+        let currentCol = startCol;
+
+        while (currentRow !== endRow || currentCol !== endCol) {
+          const cella = document.querySelector(
+            `td[data-row="${currentRow}"][data-col="${currentCol}"]`
+          );
+          if (cella) {
+            cella.classList.add("nonTrovato");
+          }
+          currentRow += deltaRow;
+          currentCol += deltaCol;
+        }
+
+        const ultimaCella = document.querySelector(
+          `td[data-row="${endRow}"][data-col="${endCol}"]`
+        );
+        if (ultimaCella) {
+          ultimaCella.classList.add("nonTrovato");
+        }
+      }
+
+
 
       function RimuoviParolaDaLista(parola) {
         const indice = data.paroleDaTrovare.indexOf(parola);

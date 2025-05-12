@@ -1,64 +1,73 @@
 /* Stile generale della pagina */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #1d1d1d;
+  color: #1d1d1d;
+}
 
-  
-  /* Contenitore centrale per la griglia */
-  #MatriceLettere {
-    width: 60%;
-    margin: 30px auto;
-    border: 2px solid black;
-    border-radius: 10px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-    background-color: white;
-    padding: 10px;
-  }
-  
-  /* Stile delle celle della griglia */
-  td {
-    width: 50px;
-    height: 50px;
-    font-size: xx-large;
-    text-align: center;
-    vertical-align: middle;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-  
-  /* Hover sulle celle */
-  td:hover {
-    background-color: rgb(255, 248, 190);
-  }
-  
-  /* Celle selezionate durante la ricerca di una parola */
-  .selezionato-prima {
-    background-color: orange;
-    color: white;
-  }
-  
-  .selezionato-ultima {
-    background-color: orange;
-    color: white;
-  }
-  
-  /* Celle che fanno parte di una parola trovata */
-  .trovato {
-    background-color: green;
-    color: white;
-  }
-  
-  /* Stile della tabella */
-  table {
-    margin: 0 auto;
-    border-collapse: collapse;
-  }
-  
-  /* Messaggi di feedback */
-  #Messaggi {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 18px;
-    color: blue;
-  }
-  
+/* Contenitore centrale per la griglia */
+#MatriceLettere {
+  width: 60%;
+  margin: 30px auto;
+  border: 2px solid #b1845d;
+  border-radius: 15px;
+  box-shadow: 8px 8px 20px rgba(74, 144, 226, 0.2);
+  background-color: #ffffff;
+  padding: 15px;
+}
 
-  
+/* Stile delle celle della griglia */
+td {
+  width: 50px;
+  height: 50px;
+  font-size: xx-large;
+  font-family: 'Courier New', monospace;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid #e0e0e0;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover sulle celle */
+td:hover {
+  background-color: #eee88e;
+  transform: scale(1.1);
+}
+
+/* Celle selezionate durante la ricerca di una parola */
+.selezionato-prima {
+  background-color: #ffda61;
+  color: white;
+  font-weight: bold;
+}
+
+.selezionato-ultima {
+  background-color: #ffda61;
+  color: white;
+  font-weight: bold;
+}
+
+/* Celle che fanno parte di una parola trovata */
+.trovato {
+  background-color: #7bc043;
+  color: white;
+  font-weight: bold;
+}
+
+/* Stile della tabella */
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+/* Messaggi di feedback */
+#Messaggi {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 20px;
+  font-family: 'Georgia', serif;
+  color: #4a90e2;
+  letter-spacing: 1px;
+}
+

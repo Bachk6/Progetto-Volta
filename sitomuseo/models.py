@@ -1,6 +1,6 @@
 from django.db import models
  
-#Modello Autore
+#Modello Author
 
 class Autore(models.Model):
     name = models.CharField(max_length=200)
@@ -14,6 +14,7 @@ class Autore(models.Model):
     def __str__(self):
         return self.name+" "+self.surname
 
+#Modello Opera
 class Opera(models.Model):
     title = models.CharField(max_length=200)
     author = models.OneToOneField(Autore,on_delete=models.CASCADE);
@@ -25,7 +26,8 @@ class Opera(models.Model):
 
     def __str__(self):
         return self.title
-
+    
+#Modello Crossword
 class Crossword(models.Model):
     opera = models.OneToOneField(Opera, on_delete=models.CASCADE)
     autore = models.OneToOneField(Autore, on_delete=models.CASCADE)
@@ -35,6 +37,7 @@ class Crossword(models.Model):
     def __str__(self):
         return f"Crosswords arguments: {self.opera.title} and {self.autore.name}"
 
+#modello User
 class Utente(models.Model):
     username = models.CharField(max_length=200)
     icona = models.ImageField(upload_to='media/imgsrc/', blank=True, null=True)
@@ -44,7 +47,8 @@ class Utente(models.Model):
 
     def __str__(self):
         return self.username
-    
+
+#Modello Achievement
 class Achievement(models.Model):
     nome = models.CharField(max_length=200)
     icona = models.ImageField(upload_to='media/imgsrc/', blank=True, null=True)

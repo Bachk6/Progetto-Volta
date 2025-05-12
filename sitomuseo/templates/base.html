@@ -7,17 +7,17 @@
     {%block altrahead%}{%endblock%}
 </head>
 <body>
-    <header><img class="imgicon" id="tohome" src="/media/media/imgsrc/lampada.png">Museo Volta<img id="touser" class="imgicon" src="/media/media/imgsrc/gotouser.png" style="margin-left:auto; height:90%;"></header>
+    <header><img class="imgicon" id="tohome" src="/media/media/imgsrc/lampada.png">MUSEO VOLTA<img id="touser" class="imgicon" src="/media/media/imgsrc/gotouser.png" style="margin-left:auto; height:90%; margin-right:0px;"></header>
     <div class="containerdiv">
     <h1>{%block title %}{%endblock%}</h1>
     <div class="centerdiv">
     {%block content %}{%endblock%}
     </div>
     </div> 
-    <div class="bottom">
+    <footer class="bottom">
         Magistri Cumacini - a.s. 2024/205<br>
         Membri Gruppo: <br>-De Vito<br>-Legani<br>-Grassi<br>-Della Monica<br>-Consonni<br>-Escobar<br>
-    </div>
+    </footer>
     <script>
         document.getElementById("tohome").addEventListener("click", ()=>{window.location={%url 'home'%}});
         document.getElementById("touser").addEventListener("click", ()=>{window.location={%url 'user'%}});

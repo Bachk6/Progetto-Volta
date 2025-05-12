@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
-{%block title %}Opere del Museo Volta{%endblock%}
+{%block title %}MUSEO-VOLTA /<u>OPERE</u>/{%endblock%}
 {%block pagetitle %}Museo Volta - Homepage{%endblock%}
 {%block content%}
+    <table class="opera_table"><tr>
     {% for opera in opere %}
-        <li>
+        <td class="opera_td">
             <a href ="{% url 'detail' opera.id %}">{{opera.title}}</a> di {{opera.author.name}} {{opera.author.surname}}({{opera.year }})
-        </li>
+        <td>
     {% endfor %}
+    </tr></table>
 {%endblock%}
 

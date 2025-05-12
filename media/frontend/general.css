@@ -1,15 +1,19 @@
 body{
-    background-color: #0a0a0a;
-    color: rgb(0, 0, 0);
+    background-color: rgb(255, 252, 238);
+    color:black;
     margin:0;
     padding:0;
-    border:0
+    border:0;
 }
 header{
     position: sticky;
     top:0;
+    font-size: 25px;
+    text-align: center;
+    font-family: "Papyrus";
+    font-weight: bold;
     height: 1.25cm;
-    background-color:   #b1845d;
+    background-color: #b1845d;
     box-shadow: 0 0 0.5cm 0.06cm #0008;
     padding-bottom:0.25cm;
     padding-top:0.15cm;
@@ -19,11 +23,10 @@ header{
     display: flex;
 }
 .containerdiv{
-    background-color: rgb(255, 248, 221);
-    color:#000;
+    background-color: rgb(255, 252, 238);
+    color: #222;
     margin:0;
-    box-shadow: 0 0 0.5cm 0.5cm #000;
-    padding:0;
+    padding:20px;
     padding-bottom: 0.5cm;
     border: 0;
 }
@@ -33,8 +36,10 @@ header{
 }
 h1,h2,h3,h4,h5,h6{
     text-align: center;
+    font-size: 25px;
     margin-top: 0;
-
+    font-family: "Garamond";
+    font-weight: bolder;
 }
 
 .operaimg {
@@ -70,16 +75,21 @@ a:hover{
     color: rgb(137, 81, 31);
 }
 .bottom{
-    width:auto;
+    width:100%;
+    position:fixed;
+    bottom:0;
+    background-color: #1d1d1d;
     color: white;
     padding: 0.5cm;
     margin: 0;
+    margin-top:auto;
     border: 0;
 }
 
 .imgicon{
     position: relative;
     height: 100%;
+    margin-right: auto;
     width: auto;
 }
 
@@ -138,3 +148,31 @@ width:-webkit-fill-available;
   background-color: rgb(110, 55, 7);
   border-radius: 10px;
 }
+
+li {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 16px;
+    
+    padding: 10px;
+    border-bottom: 1px solid #eee5dd;
+  }
+
+  .opera_table {
+    display: flex; /*grid*/
+    flex-wrap: wrap;/**/
+    /*grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));*/
+    gap: 20px;
+    max-width: 900px;
+    margin: 0px auto;
+  }
+  
+  .opera_td {
+    background-color: white;
+    /*padding: 30px;*/
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid #eee5dd;
+    /*height: 100px;*/
+    flex: 0 0 calc(33.333% - 13.333px); /* 3 per riga con gap */
+  }
+  
